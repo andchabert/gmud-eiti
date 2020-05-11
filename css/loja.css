@@ -1,0 +1,11 @@
+body {
+    padding-top: 50px;
+}
+.principal {
+    padding: 40px 15px;
+    text-align: center;
+}
+.form-signin{
+    width: 300px;
+    margin: auto;
+}
