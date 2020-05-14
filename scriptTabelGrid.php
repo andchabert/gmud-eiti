@@ -53,3 +53,42 @@ $(document).ready(function(){
     });
 });
 </script>-->
+
+
+<!--
+<tr>
+  <td>Urgência x Impacto</td>
+<td>
+<table class="table-teste table-bordered" style="width:400px" >
+  <thead>
+    <tr>
+      <th scope="col">U / I</th>
+      <th scope="col">Alta</th>
+      <th scope="col">Media</th>
+      <th scope="col">Baixa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Alta</th>
+      <td bgcolor="#FA5858"><button type="button" style="background-color:#FA5858;border:none;" value="<?=$produto->getNivel()?>">1</button></td>
+      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">2</button></td>
+      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
+    </tr>
+    <tr>
+      <th scope="row">Media</th>
+      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">2</button></td>
+      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
+      <td bgcolor="#64FE2E"><button type="button" style="background-color:#64FE2E;border:none;" value="<?=$produto->getNivel()?>">4</button></td>
+    </tr>
+    <tr>
+      <th scope="row">Baixa</th>
+      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
+      <td bgcolor="#64FE2E"><button type="button" style="background-color:#64FE2E;border:none;" value="<?=$produto->getNivel()?>">4</button></td>
+      <td bgcolor="#2E64FE"><button type="button" style="background-color:#2E64FE;border:none;" value="<?=$produto->getNivel()?>">5</button></td>
+          </td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+          -->

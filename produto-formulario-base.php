@@ -80,60 +80,38 @@ function myFunction() {
      label.style.display = "none";
   }
 }
+
 </script>
   <tr>
     <td><label style="display:none" id="label">Ticket no OTRS</label></td>
     <td><input style="display:none" class="form-control"  type="text" id="nrticket" name="nrticket" value="<?=$produto->getNrticket()?>"></td>
   </tr>
 
-  <tr>
-    <td>
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-8"><h2>Steps <b>GMUD</b></h2></div>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Novo Step</button>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Step</th>
-                        <th>Detalhes</th>
-                        <th>Tempo</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Backup do firewall</td>
-                        <td>Add no sharepoint do cliente</td>
-                        <td>15 min</td>
-                        <td>
-							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Avisar incio downtime</td>
-                        <td>Informar o inicio do downtime</td>
-                        <td>15 min</td>
-                        <td>
-							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>  
-  </td> 
-  </tr>
+<!-- Button trigger modal 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>-->
+
+<!-- Modal 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>-->
 
   <tr>
   <td>E-mail para aprovação interno</td>
@@ -187,42 +165,94 @@ function myFunction() {
     <td><input type="text" name="notificados"  class="form-control" value="" placeholder="lista de e-mail separar com ;"></td> 
 </tr>
 
-<!--
-<tr>
-  <td>Urgência x Impacto</td>
-<td>
-<table class="table-teste table-bordered" style="width:400px" >
-  <thead>
-    <tr>
-      <th scope="col">U / I</th>
-      <th scope="col">Alta</th>
-      <th scope="col">Media</th>
-      <th scope="col">Baixa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Alta</th>
-      <td bgcolor="#FA5858"><button type="button" style="background-color:#FA5858;border:none;" value="<?=$produto->getNivel()?>">1</button></td>
-      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">2</button></td>
-      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
-    </tr>
-    <tr>
-      <th scope="row">Media</th>
-      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">2</button></td>
-      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
-      <td bgcolor="#64FE2E"><button type="button" style="background-color:#64FE2E;border:none;" value="<?=$produto->getNivel()?>">4</button></td>
-    </tr>
-    <tr>
-      <th scope="row">Baixa</th>
-      <td bgcolor="#F4FA58"><button type="button" style="background-color:#F4FA58;border:none;" value="<?=$produto->getNivel()?>">3</button></td>
-      <td bgcolor="#64FE2E"><button type="button" style="background-color:#64FE2E;border:none;" value="<?=$produto->getNivel()?>">4</button></td>
-      <td bgcolor="#2E64FE"><button type="button" style="background-color:#2E64FE;border:none;" value="<?=$produto->getNivel()?>">5</button></td>
-          </td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
-          -->
-
+<script type="text/javascript">
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+	var actions = $("table td:last-child").html();
+	// Append table with add row form on add new button click
+    $(".add-new").click(function(){
+		$(this).attr("disabled", "disabled");
+		var index = $("table tbody tr:last-child").index();
+        var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="name" id="name"></td>' +
+            '<td><input type="text" class="form-control" name="department" id="department"></td>' +
+            '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+			'<td>' + actions + '</td>' +
+        '</tr>';
+    	$("table").append(row);		
+		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+	// Add row on add button click
+	$(document).on("click", ".add", function(){
+		var empty = false;
+		var input = $(this).parents("tr").find('input[type="text"]');
+        input.each(function(){
+			if(!$(this).val()){
+				$(this).addClass("error");
+				empty = true;
+			} else{
+                $(this).removeClass("error");
+            }
+		});
+		$(this).parents("tr").find(".error").first().focus();
+		if(!empty){
+			input.each(function(){
+				$(this).parent("td").html($(this).val());
+			});			
+			$(this).parents("tr").find(".add, .edit").toggle();
+			$(".add-new").removeAttr("disabled");
+		}		
+    });
+	// Edit row on edit button click
+	$(document).on("click", ".edit", function(){		
+        $(this).parents("tr").find("td:not(:last-child)").each(function(){
+			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+		});		
+		$(this).parents("tr").find(".add, .edit").toggle();
+		$(".add-new").attr("disabled", "disabled");
+    });
+	// Delete row on delete button click
+	$(document).on("click", ".delete", function(){
+        $(this).parents("tr").remove();
+		$(".add-new").removeAttr("disabled");
+    });
+});
+</script>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Steps GMUD</td>
+                        <td><button type="button" class="btn btn-info add-new">Novo Step</button></td>
+                    </tr>
+                    <tr>
+                        <th>Step</th>
+                        <th>Detalhes</th>
+                        <th>Tempo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Backup do firewall</td>
+                        <td>Add no sharepoint do cliente</td>
+                        <td>15 min</td>
+                        <td>
+							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Avisar incio downtime</td>
+                        <td>Informar o inicio do downtime</td>
+                        <td>15 min</td>
+                        <td>
+							<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 

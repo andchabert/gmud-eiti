@@ -32,8 +32,7 @@ $categorias = $CategoriaDao->listaCategoria();
             <td>
             <br>
             <input class="btn btn-primary" type="submit" value="Cadastrar" />
-            </td>
-            <td>
+            <br>
             </td>
           </tr>
       </table>
