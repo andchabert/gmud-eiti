@@ -1,7 +1,6 @@
 
 <?php
-session_start ();
-
+session_start();
 
 function logaUsuario($email) {
   $_SESSION["usuario_logado"] = $email;
