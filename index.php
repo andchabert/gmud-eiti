@@ -1,5 +1,6 @@
 
 <?php require_once 'cabecalho.php';
+      require_once 'logica-usuario.php';
 
 mostraAlerta("success");
 mostraAlerta("danger");
@@ -14,10 +15,10 @@ mostraAlerta("danger");
     ?>
 <link href="css/loja.css" rel="stylesheet">
   <body class="text-center">
-    <form action="login.php" method="post" class="form-signin">
+    <form action="ad.php" method="post" class="form-signin">
     <img class="mb-4" src="images/logo.jpg" style="width: 100px; height: 90px;" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Faça login</h1><br>
-      <input type="email" name="email"  class="form-control" placeholder="Seu email" required autofocus>
+      <input type="text" name="email"  class="form-control" placeholder="Seu email" required autofocus>
       <br>
       <input type="password" name="senha" class="form-control" placeholder="Senha" required>
        <div class="checkbox mb-3">

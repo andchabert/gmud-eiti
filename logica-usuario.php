@@ -2,6 +2,15 @@
 <?php
 session_start ();
 
+
+function logaUsuario($email) {
+  $_SESSION["usuario_logado"] = $email;
+}
+
+function usuario_logado() {
+  return $_SESSION["usuario_logado"];
+}
+
 function usuarioEstaLogado () {
   return isset($_SESSION["usuario_logado"]);
   }
@@ -12,14 +21,6 @@ if (!usuarioEstaLogado()) {
   header ("Location: index.php");
 die();
     }
-}
-
-function usuario_logado() {
-  return $_SESSION["usuario_logado"];
-}
-
-function logaUsuario($email) {
-   $_SESSION["usuario_logado"] = $email;
 }
 
 function logout () {
